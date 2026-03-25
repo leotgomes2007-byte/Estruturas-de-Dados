@@ -1,0 +1,7 @@
+List - é uma interface que define o comportamento de uma lista, permitindo elementos duplicados e mantendo a ordem de inserção. É usada como tipo genérico para listas.
+
+ArrayList - é uma lista que aumenta de tamanho conforme a necessidade, mas sofre ao inserir ou remover elementos no meio, pois precisa deslocar os demais elementos. É utilizada na maioria dos casos.
+
+LinkedList - é uma lista duplamente encadeada, que facilita a inserção e a remoção de valores, não sendo necessário reorganizar todos os elementos ao adicionar ou remover algum. Porém, é mais lenta ao percorrer a lista. É usada em sistemas que precisam inserir ou remover dados com frequência.
+
+Vector - é uma lista sincronizada (thread-safe), ou seja, possui um mecanismo de segurança que garante a integridade dos dados em ambientes com múltiplas threads. Por causa disso, acaba sendo mais lenta e pesada. É mais comum em sistemas antigos.
