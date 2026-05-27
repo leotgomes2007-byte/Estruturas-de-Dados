@@ -54,8 +54,8 @@ void edr(Arvore *raiz) {
 // 1. contar numeros pares
 int contarPares(Arvore *raiz) {
     if (raiz) {
-        if (raiz->valor % 2 == 0) {
-            return 1 + contarPares(raiz->esq) + contarPares(raiz->dir);
+        if (raiz->valor % 2 == 0) { //verifica se é par
+            return 1 + contarPares(raiz->esq) + contarPares(raiz->dir); //recursão, passa por toda a arvore e aonde é par ele coloca 1 e quando volta(recursão) soma todos esses 1(esquerda/direita)
         } else {
             return contarPares(raiz->esq) + contarPares(raiz->dir);
         }
@@ -65,7 +65,7 @@ int contarPares(Arvore *raiz) {
 // 2. contar nodos folhas
 int contarFolhas(Arvore *raiz) {
     if (raiz) {
-        if (raiz->esq == NULL && raiz->dir == NULL) {
+        if (raiz->esq == NULL && raiz->dir == NULL) { //se a nodo não tiver filhas elas são folhas
             return 1;
         }
         return contarFolhas(raiz->esq) + contarFolhas(raiz->dir);
@@ -75,13 +75,13 @@ int contarFolhas(Arvore *raiz) {
 // 3. ver se o valor está contido na árvore
 bool contido(int valor, Arvore *raiz) {
     if (raiz) {
-        if (valor == raiz->valor) {
+        if (valor == raiz->valor) { //percorre toda a arvore e quando acha ele retorna true
             return true;
         }
-        if (valor < raiz->valor) {
+        if (valor < raiz->valor) { //diz que caso esteja percorrendo e não tenha achado vá para a esquerda
             return contido(valor, raiz->esq);
-        } else {
-            return contido(valor, raiz->dir);
+        } else { //diz que caso esteja percorrendo e não achou e além disso não achou na esqueda vá para a direita
+            return contido(valor, raiz->dir); 
         }
     }
     return false;
@@ -90,7 +90,7 @@ bool contido(int valor, Arvore *raiz) {
 //4. contar nodos
 int contarNaoFolhas(Arvore *raiz) {
     if (raiz) {
-        if (raiz->esq != NULL || raiz->dir != NULL) {
+        if (raiz->esq != NULL || raiz->dir != NULL) { //se o nodo tiver filhas elas são nodos
             return 1 + contarNaoFolhas(raiz->esq) + contarNaoFolhas(raiz->dir);
         }
     }
